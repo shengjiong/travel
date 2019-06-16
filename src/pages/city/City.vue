@@ -5,8 +5,12 @@
       <city-list
         :cities="cities"
         :hot="hotCities"
+        :letter="letter"
       ></city-list>
-      <city-alphabet :cities="cities"></city-alphabet>
+      <city-alphabet
+        :cities="cities"
+        @change="handleLetterChange"
+      ></city-alphabet>
   </div>
 </template>
 <script>
@@ -44,6 +48,10 @@ export default {
         this.cities = data.cities
         this.hotCities = data.hotCities
       }
+    },
+    handleLetterChange (letter) {
+      console.log(letter)
+      this.letter = letter
     }
   },
   mounted () {
