@@ -5,7 +5,7 @@
     </div>
     <div class="search-content" ref="search" v-show="keyword">
       <ul>
-        <li class="search-item border-bottom" v-for="item of list" :key="item.id">
+        <li class="search-item border-bottom" v-for="item of list" :key="item.id" @click="handleCityClick(item.name)">
             {{item.name}}
         </li>
         <li class="search-item border-bottom" v-show="hasNoData">
@@ -27,6 +27,14 @@ export default {
       keyword: '',
       list: [],
       timer: null
+    }
+  },
+  methods: {
+    handleCityClick (city) {
+      console.log(city, 1111111)
+      // this.$store.dispatch('changeCity', city)
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
     }
   },
   mounted () {
@@ -73,7 +81,7 @@ export default {
       border-radius: .06rem
       color: #666
   .search-content
-    // z-index: 1
+    z-index: 1
     overflow: hidden
     position: absolute
     top: 1.58rem
