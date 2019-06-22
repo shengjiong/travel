@@ -17,15 +17,15 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
   // props: {
   //   city: String
   // },
   computed: {
-    ...mapState(['city']),
-    ...mapGetters(['doubleCity'])
+    ...mapState(['city'])
+    // ...mapGetters(['doubleCity'])
     // 这时候的city相当于this.$store.state.city
   }
 }
